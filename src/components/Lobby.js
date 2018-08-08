@@ -6,21 +6,7 @@ import Request from './lobbyComponents/Request';
 
 
 export default class Lobby extends Component {
-    
-    constructor(props) {
-        super(props);
-        this.state = {
-            input : '',
-        };
-        
-       // this.props.socket.on('lobby', errors => this.setState({errors}));
-        
-    }
-    
-   // handleInputChange = event => {
-       // this.setState({username:event.target.value});
-   // };
-    
+
     render() {
         return (
             <div style={{
