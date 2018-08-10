@@ -15,8 +15,8 @@ class App extends Component {
             lobby : [],
         };
         this.socket =
-            socketIOClient('http://localhost:4000');
-            //socketIOClient('https://react-pong-server.herokuapp.com/');
+            //socketIOClient('http://localhost:4000');
+            socketIOClient('https://react-pong-server.herokuapp.com/');
         this.socket.on('login', data => {
             let {username, lobby, state} = data;
             this.setState({username,lobby,state});
