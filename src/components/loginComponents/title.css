@@ -1,9 +1,38 @@
-.App-logo {
-    animation: App-logo-spin infinite 20s linear;
-    height: 80px;
+.react-logo {
+    position: absolute;
+    animation: logo-spin infinite 20s linear;
+    height: 130px;
+    top : -25px;
+    left : -100px;
+
 }
 
-@keyframes App-logo-spin {
+.socket-logo {
+    position: absolute;
+    animation: logo-spin infinite 20s linear;
+    height: 120px;
+    top : 270px;
+    left : 400px;
+
+}
+
+.mongo-logo {
+    position: absolute;
+    height: 100px;
+    top : 270px;
+    left : -70px;
+
+}
+
+.node-logo {
+    position: absolute;
+    height: 100px;
+    top : -25px;
+    left : 350px;
+
+}
+
+@keyframes logo-spin {
     from { transform: rotate(0deg); }
     to { transform: rotate(360deg); }
 }

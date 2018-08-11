@@ -3,8 +3,8 @@ import {Button, FormControl} from "react-bootstrap";
 import Title from './loginComponents/Title'
 
 const style = {
-    height : '445px',//430
-    width : '660px',//630
+    height : '445px',
+    width : '660px',
     margin: 'auto',
     marginTop: '20px',
     border: 'black solid 1px',
@@ -12,7 +12,7 @@ const style = {
     background: 'lightgray',
     borderRadius: '5px',
     padding: '130px',
-    paddingTop: '200px',
+    paddingTop: '140px',
     color: 'red',
 };
 
