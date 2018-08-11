@@ -6,7 +6,7 @@ const OnlineList = props => {
     
     let list = [];
     
-    for (let i in props.lobby)
+    for (let i in props.lobby) {
         if (props.username !== props.lobby[i])
             list.push(
                 <Button bsStyle="primary" onClick={
@@ -15,7 +15,7 @@ const OnlineList = props => {
                     {props.lobby[i]}
                 </Button>
             );
-    
+    }
     return (
         <div style={{
             position :'absolute',
