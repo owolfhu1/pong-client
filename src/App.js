@@ -1,9 +1,13 @@
 import React, { Component } from 'react';
-import './App.css';
 import Login from "./components/Login";
 import socketIOClient from 'socket.io-client'
 import Lobby from "./components/Lobby";
 import Game from "./components/Game";
+import Signature from "./components/Signature";
+
+const style = {
+    textAlign : 'center',
+};
 
 class App extends Component {
     
@@ -40,8 +44,9 @@ class App extends Component {
     
     render() {
         return (
-            <div className="App">
+            <div style={style}>
                 {this.display()}
+                <Signature/>
             </div>
         );
     }

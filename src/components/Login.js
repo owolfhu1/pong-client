@@ -1,9 +1,10 @@
 import React,{Component} from 'react';
-import {Button, Form, FormControl, FormGroup} from "react-bootstrap";
+import {Button, FormControl} from "react-bootstrap";
+import Title from './loginComponents/Title'
 
 const style = {
-    height: '430px',
-    width: '630px',
+    height : '445px',//430
+    width : '660px',//630
     margin: 'auto',
     marginTop: '20px',
     border: 'black solid 1px',
@@ -11,6 +12,7 @@ const style = {
     background: 'lightgray',
     borderRadius: '5px',
     padding: '130px',
+    paddingTop: '200px',
     color: 'red',
 };
 
@@ -36,6 +38,7 @@ export default class Login extends Component {
     render() {
         return (
             <div style={style}>
+                <Title/>
                 <div>
                     <FormControl onChange={this.handleUsernameInputChange}
                                  value={this.state.username}

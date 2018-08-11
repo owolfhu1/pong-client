@@ -2,10 +2,11 @@ import React,{Component} from 'react';
 import OnlineList from './lobbyComponents/OnlineList';
 import Chat from './lobbyComponents/Chat';
 import Request from './lobbyComponents/Request';
+import Signature from "./Signature";
 
 const style = {
-    height: '430px',
-    width: '630px',
+    height : '445px',//430
+    width : '660px',//630
     margin: 'auto',
     marginTop: '20px',
     border: 'black solid 1px',
