@@ -14,7 +14,7 @@ const mainStyle = {
 };
 
 const wellStyle = {
-    height : '339px',
+    height : '354px',
     overflowY: 'scroll',
     marginBottom : '10px',
     textAlign : 'left',
