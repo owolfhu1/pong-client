@@ -3,7 +3,6 @@ import nodeLogo from './node-logo1.svg';
 import reactLogo from './react-logo.svg';
 import mongoLogo from './mongo-logo1.svg';
 import socketLogo from './socket-logo.svg';
-import './title.css';
 
 const style = {
     position : 'absolute',

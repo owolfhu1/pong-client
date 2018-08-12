@@ -4,10 +4,9 @@ import socketIOClient from 'socket.io-client'
 import Lobby from "./components/Lobby";
 import Game from "./components/Game";
 import Signature from "./components/Signature";
+import './App.css';
 
-const style = {
-    textAlign : 'center',
-};
+const style = {textAlign : 'center'};
 
 class App extends Component {
     

@@ -1,6 +1,26 @@
+
+body {
+    background: lightyellow;
+}
+
+html {
+    overflow: scroll;
+    overflow-x: hidden;
+}
+::-webkit-scrollbar {
+    position: absolute;
+    background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    background: lightblue;
+    border: blue solid 1px;
+    border-radius:  10px;
+}
+
 .react-logo {
     position: absolute;
-    animation: logo-spin infinite 20s linear;
+    animation: logo-spin infinite 10s linear;
     height: 130px;
     top : -25px;
     left : -100px;
@@ -9,7 +29,7 @@
 
 .socket-logo {
     position: absolute;
-    animation: logo-spin infinite 20s linear;
+    animation: logo-spin infinite 2s reverse;
     height: 120px;
     top : 270px;
     left : 400px;
