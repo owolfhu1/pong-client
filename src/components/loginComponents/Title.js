@@ -23,7 +23,7 @@ const Title = props => {
     
     return (
         <div style={style}>
-            <span className="pong-title">Pong </span>
+            <span style={textStyle}>Pong </span>
             <img src={reactLogo} className="react-logo" alt="reactJS" />
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <img src={nodeLogo} className="node-logo" alt="nodeJS" />
