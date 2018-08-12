@@ -20,16 +20,16 @@ html {
 
 .react-logo {
     position: absolute;
-    animation: logo-spin infinite 10s linear;
+    animation: logo-3d infinite 2s linear;
     height: 130px;
-    top : -25px;
-    left : -100px;
+    top : -30px;
+    left : -120px;
 
 }
 
 .socket-logo {
     position: absolute;
-    animation: logo-spin infinite 2s reverse;
+    animation: logo-spin infinite 1.5s reverse;
     height: 120px;
     top : 270px;
     left : 400px;
@@ -37,6 +37,7 @@ html {
 }
 
 .mongo-logo {
+    animation: logo-grow infinite 1s linear;
     position: absolute;
     height: 100px;
     top : 270px;
@@ -45,14 +46,44 @@ html {
 }
 
 .node-logo {
+    animation: logo-skew infinite 1s linear;
     position: absolute;
     height: 100px;
     top : -25px;
     left : 350px;
+}
 
+.pong-title {
+    animation: pong infinite 1s linear;
 }
 
 @keyframes logo-spin {
     from { transform: rotate(0deg); }
     to { transform: rotate(360deg); }
+}
+
+@keyframes logo-3d {
+    from { transform: rotate3d(0,0,0,360deg); }
+    to { transform: rotate3d(20,50,-20,360deg); }
+}
+
+@keyframes logo-grow {
+    0%,100% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+}
+
+@keyframes logo-skew {
+    0% { transform: skewX(10deg); }
+    25% { transform: skew(-10deg); }
+    50% { transform: skewY(10deg); }
+    75% { transform: skewX(-10deg); }
+    100% { transform: skew(10deg); }
+}
+
+@keyframes pong {
+    0% { transform: skewX(10deg); }
+    25% { transform: skew(-10deg); }
+    50% { transform: skewY(10deg); }
+    75% { transform: skewX(-10deg); }
+    100% { transform: skew(10deg); }
 }
