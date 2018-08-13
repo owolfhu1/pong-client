@@ -60,13 +60,25 @@ export default class Login extends Component {
             this.setState({registerText : 'Error: Your passwords do not match.'});
         }
     };
+    
     cancelRegistration(){
         this.setState({
             showPassTwo:false,
             passwordTwo:'',
         });
-    }
+    };
     
+    login() {
+        this.props.socket.emit('login', {
+            name:this.state.username,
+            pass:this.state.password,
+        });
+    };
+    
+    pressKey(e) {
+        if (e.key === 'Enter')
+            this.login();
+    }
     
     render() {
         return (
@@ -74,16 +86,13 @@ export default class Login extends Component {
                 <Title/>
                 <div>
                     <FormControl onChange={this.handleUsernameInputChange}
-                                 value={this.state.username}
+                                 value={this.state.username} onKeyDown={this.pressKey.bind(this)}
                                  type="text" placeholder="Username"/>
                     <FormControl onChange={this.handlePasswordInputChange}
-                                 value={this.state.password}
+                                 value={this.state.password} onKeyDown={this.pressKey.bind(this)}
                                  type="password" placeholder="Password"/>
                     {this.state.msg}
-                    <Button onClick={() => this.props.socket.emit('login', {
-                        name:this.state.username,
-                        pass:this.state.password,
-                    })} bsStyle="success" block>Login</Button>
+                    <Button onClick={this.login.bind(this)} bsStyle="success" block>Login</Button>
                     <Button onClick={this.getSecondPassword.bind(this)} bsStyle="primary" block>Register</Button>
                     
                     <div style={{

@@ -42,7 +42,7 @@ export default class Game extends Component {
     };
 
     render() {
-        return <div tabIndex="0" style={style} onLoad={() => this.refs.item.focus()} onKeyDown={this.handleKeyPress.bind(this)}>
+        return <div tabIndex="0" style={style} onKeyDown={this.handleKeyPress.bind(this)}>
             {this.state.message}
             <PongBody left={this.state.left} right={this.state.right} x={this.state.x} y={this.state.y}/>
         </div>
