@@ -63,8 +63,8 @@ export default class Chat extends Component {
                     <div style={{ float:"left", clear: "both" }}
                          ref={(el) => { this.messagesEnd = el; }}/>
                 </Well>
-                <FormControl onChange={this.handleInputChange}
-                             value={this.state.input}
+                <FormControl
+                             value={this.state.input}onChange={this.handleInputChange}
                              type="text" placeholder="Type here to chat"
                              onKeyPress={this.handleKeyPress}/>
             </div>
