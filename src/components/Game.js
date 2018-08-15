@@ -30,7 +30,11 @@ export default class Game extends Component {
         });
         this.props.socket.on('start_game', () => this.setState({message: null}));
     }
-    
+
+    componentDidMount() {
+        this.gameBody.focus();
+    }
+
     handleKeyPress = e => {
         if (e.key === 'Escape') {
             this.props.socket.emit('exit');
@@ -42,10 +46,12 @@ export default class Game extends Component {
     };
 
     render() {
-        return <div tabIndex="0" style={style} onKeyDown={this.handleKeyPress.bind(this)}>
-            {this.state.message}
-            <PongBody left={this.state.left} right={this.state.right} x={this.state.x} y={this.state.y}/>
-        </div>
+        return (
+            <div ref={div => {this.gameBody = div;}} tabIndex="0" style={style} onKeyDown={this.handleKeyPress.bind(this)}>
+                {this.state.message}
+                <PongBody left={this.state.left} right={this.state.right} x={this.state.x} y={this.state.y}/>
+            </div>
+        )
     }
 
 }
