@@ -13,7 +13,6 @@ const style = {
     borderRadius: '5px',
     padding: '130px',
     paddingTop: '140px',
-    color: 'red',
 };
 
 export default class Login extends Component {
@@ -27,11 +26,13 @@ export default class Login extends Component {
             passwordTwo : '',
             showPassTwo : false,
             registerText : 'Please re-type your password to register.',
+            color: 'red',
+            rColor: 'green',
         };
-        this.props.socket.on('login_msg', msg => this.setState({msg}));
+        this.props.socket.on('login_msg', msg => this.setState({msg: msg.msg, color:msg.color}));
         this.props.socket.on('register', bool => {
             let msg = 'registration ' + (bool ? 'success' : 'fail: username taken');
-            this.setState({msg});
+            this.setState({msg,color:bool ? 'green':'red'});
         });
     }
     
@@ -57,7 +58,7 @@ export default class Login extends Component {
                 pass: this.state.password,
             });
         } else {
-            this.setState({registerText : 'Error: Your passwords do not match.'});
+            this.setState({registerText : 'Error: Your passwords do not match.',rColor:'red'});
         }
     };
     
@@ -91,7 +92,7 @@ export default class Login extends Component {
                     <FormControl onChange={this.handlePasswordInputChange}
                                  value={this.state.password} onKeyDown={this.pressKey.bind(this)}
                                  type="password" placeholder="Password"/>
-                    {this.state.msg}
+                    <span style={{color: this.state.color}}>{this.state.msg}</span>
                     <Button onClick={this.login.bind(this)} bsStyle="success" block>Login</Button>
                     <Button onClick={this.getSecondPassword.bind(this)} bsStyle="primary" block>Register</Button>
                     
@@ -108,7 +109,7 @@ export default class Login extends Component {
                         padding : '15px',
                         paddingTop : '10px',
                     }}>
-                        <h4>{this.state.registerText}</h4>
+                        <h4 style={{color:this.state.rColor}}>{this.state.registerText}</h4>
                         <FormControl style={{marginBottom:'4px'}} onChange={this.handlePasswordTwoInputChange}
                                      value={this.state.passwordTwo}
                                      type="password" placeholder="confirm password here"/>
