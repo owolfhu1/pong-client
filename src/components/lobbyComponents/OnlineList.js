@@ -29,7 +29,13 @@ const OnlineList = props => {
             background : 'white',
             overflowY: 'scroll',
         }}>
-            {list}
+            <Button bsStyle="warning" onClick={() =>props.socket.emit('get_scores')} block>
+                view high scores
+            </Button>
+            <hr/>
+            <div>
+                {list}
+            </div>
         </div>
     );
 };

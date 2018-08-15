@@ -88,3 +88,18 @@ html {
     65% { top : 45px; left : 175px; }
     85% { top : -60px; left : 90px; }
 }
+
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 323px;
+}
+
+td, th {
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even) {
+    background-color: #dddddd;
+}

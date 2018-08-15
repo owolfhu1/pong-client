@@ -54,11 +54,6 @@ export default class Chat extends Component {
         return (
             <div style={mainStyle}>
                 <Well style={wellStyle}>
-                    <div>commands:</div>
-                    <ul>
-                        <li>'/myScore'</li>
-                        <li>'/topThree'</li>
-                    </ul>
                     <div>{this.state.chat}</div>
                     <div style={{ float:"left", clear: "both" }}
                          ref={(el) => { this.messagesEnd = el; }}/>
