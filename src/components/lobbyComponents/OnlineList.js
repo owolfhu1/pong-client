@@ -1,7 +1,6 @@
 import React from 'react';
 import {Button} from "react-bootstrap";
 
-
 const OnlineList = props => {
     
     let list = [];
@@ -16,11 +15,12 @@ const OnlineList = props => {
                 </Button>
             );
     }
+    
     return (
         <div style={{
             position :'absolute',
             height : '94%',
-            width : '45%',
+            width : '30%',
             top : '3%',
             left : '3%',
             padding : '8px',
@@ -29,13 +29,9 @@ const OnlineList = props => {
             background : 'white',
             overflowY: 'scroll',
         }}>
-            <Button bsStyle="warning" onClick={() =>props.socket.emit('get_scores')} block>
-                view high scores
-            </Button>
-            <hr/>
-            <div>
-                {list}
-            </div>
+            <strong>available players</strong>
+            <p>click to play</p>
+            <div>{list}</div>
         </div>
     );
 };

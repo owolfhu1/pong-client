@@ -4,7 +4,7 @@ import {Button, FormControl, Well} from "react-bootstrap";
 const mainStyle = {
     position :'absolute',
     height : '94%',
-    width : '45%',
+    width : '30%',
     top : '3%',
     right : '3%',
     padding : '8px',
@@ -14,10 +14,11 @@ const mainStyle = {
 };
 
 const wellStyle = {
-    height : '354px',
+    height : '310px',
     overflowY: 'scroll',
     marginBottom : '10px',
     textAlign : 'left',
+    marginTop : '10px'
 };
 
 export default class Chat extends Component {
@@ -53,13 +54,16 @@ export default class Chat extends Component {
     render() {
         return (
             <div style={mainStyle}>
+                <Button bsStyle="warning" onClick={() =>this.props.socket.emit('get_scores')} block>
+                    view high scores
+                </Button>
                 <Well style={wellStyle}>
                     <div>{this.state.chat}</div>
                     <div style={{ float:"left", clear: "both" }}
                          ref={(el) => { this.messagesEnd = el; }}/>
                 </Well>
                 <FormControl
-                             value={this.state.input}onChange={this.handleInputChange}
+                             value={this.state.input} onChange={this.handleInputChange}
                              type="text" placeholder="Type here to chat"
                              onKeyPress={this.handleKeyPress}/>
             </div>

@@ -5,6 +5,7 @@ import Lobby from "./components/Lobby";
 import Game from "./components/Game";
 import Signature from "./components/Signature";
 import './App.css';
+import ObserverGame from "./components/ObserverGame";
 
 const style = {textAlign : 'center'};
 
@@ -16,16 +17,20 @@ class App extends Component {
             state : 'login',
             username : '',
             lobby : [],
+            games : {},
+            left : null,
+            right : null,
         };
         this.socket =
-            //socketIOClient('http://localhost:4000');
-            socketIOClient('https://react-pong-server.herokuapp.com/');
+            socketIOClient('http://localhost:4000');
+            //socketIOClient('https://react-pong-server.herokuapp.com/');
         this.socket.on('login', data => {
             let {username, lobby, state} = data;
             this.setState({username,lobby,state});
         });
         this.socket.on('start_game', () => this.setState({state:'game'}));
-        this.socket.on('lobby', lobby => this.setState({lobby}));
+        this.socket.on('lobby', data => this.setState({lobby :data.lobby, games:data.gameMap}));
+        this.socket.on('observe', data => this.setState({state:'observe', left:data.left, right:data.right}))
     }
     
     display = () => {
@@ -35,9 +40,14 @@ class App extends Component {
             case 'lobby' :
                 return <Lobby socket={this.socket}
                               lobby={this.state.lobby}
+                              games={this.state.games}
                               username={this.state.username}/>;
             case 'game' :
                 return <Game socket={this.socket}/>;
+            case 'observe' :
+                return <ObserverGame socket={this.socket}
+                                     right={this.state.right}
+                                     left={this.state.left}/>;
         }
     };
     

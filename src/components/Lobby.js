@@ -4,6 +4,7 @@ import Chat from './lobbyComponents/Chat';
 import Request from './lobbyComponents/Request';
 import HighScores from "./lobbyComponents/HighScores";
 import {Button} from "react-bootstrap";
+import GameList from "./lobbyComponents/GameList";
 
 const style = {
     height : '445px',
@@ -45,6 +46,8 @@ export default class Lobby extends Component {
     render() {
         return (
             <div style={style}>
+                <GameList socket={this.props.socket}
+                          games={this.props.games}/>
                 <OnlineList socket={this.props.socket}
                             lobby={this.props.lobby}
                             username={this.props.username}/>
