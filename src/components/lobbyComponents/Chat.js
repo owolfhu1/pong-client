@@ -14,7 +14,7 @@ const mainStyle = {
 };
 
 const wellStyle = {
-    height : '310px',
+    height : '272px',
     overflowY: 'scroll',
     marginBottom : '10px',
     textAlign : 'left',
@@ -56,6 +56,9 @@ export default class Chat extends Component {
             <div style={mainStyle}>
                 <Button bsStyle="warning" onClick={() =>this.props.socket.emit('get_scores')} block>
                     view high scores
+                </Button>
+                <Button bsStyle="success" onClick={() =>this.props.socket.emit('solo')} block>
+                    solo game
                 </Button>
                 <Well style={wellStyle}>
                     <div>{this.state.chat}</div>
